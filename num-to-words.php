@@ -21,11 +21,12 @@ function convert_tens($num)
     } else if ($num >= 10 && $num < 20) {
         return $teens[$num - 10];
     } else {
-        if ($num % 10 === 0) {
-            return $tens[floor($num / 10)];
-        } else {
-            return $tens[floor($num / 10)] . " " . $ones[$num % 10];
-        }
+        return $num % 10 === 0 ?  $tens[floor($num / 10)] : $tens[floor($num / 10)] . " " . $ones[$num % 10];
+        // if ($num % 10 === 0) {
+        //     return $tens[floor($num / 10)];
+        // } else {
+        //     return $tens[floor($num / 10)] . " " . $ones[$num % 10];
+        // }
     }
 }
 
@@ -34,11 +35,12 @@ function convert_hundreds($num)
     global $ones;
 
     if ($num > 99) {
-        if ($num % 100 === 0) {
-            return $ones[floor($num / 100)] . " HUNDRED ";
-        } else {
-            return $ones[floor($num / 100)] . " HUNDRED AND " . convert_tens($num % 100);
-        }
+        return $num % 100 === 0 ? $ones[floor($num / 100)] . " HUNDRED " : $ones[floor($num / 100)] . " HUNDRED AND " . convert_tens($num % 100);
+        // if ($num % 100 === 0) {
+        //     return $ones[floor($num / 100)] . " HUNDRED ";
+        // } else {
+        //     return $ones[floor($num / 100)] . " HUNDRED AND " . convert_tens($num % 100);
+        // }
     } else {
         return convert_tens($num);
     }
@@ -46,29 +48,32 @@ function convert_hundreds($num)
 
 function convert_thousands($num)
 {
-    if ($num >= 1000) {
-        return convert_hundreds(floor($num / 1000)) . " THOUSAND " . convert_hundreds($num % 1000);
-    } else {
-        return convert_hundreds($num);
-    }
+    return $num >= 1000 ?  convert_hundreds(floor($num / 1000)) . " THOUSAND " . convert_hundreds($num % 1000) : convert_hundreds($num);
+    // if ($num >= 1000) {
+    //     return convert_hundreds(floor($num / 1000)) . " THOUSAND " . convert_hundreds($num % 1000);
+    // } else {
+    //     return convert_hundreds($num);
+    // }
 }
 
 function convert_millions($num)
 {
-    if ($num >= 1000000) {
-        return convert_millions(floor($num / 1000000)) . " MILLION " . convert_thousands($num % 1000000);
-    } else {
-        return convert_thousands($num);
-    }
+    return $num >= 1000000 ? convert_millions(floor($num / 1000000)) . " MILLION " . convert_thousands($num % 1000000) : convert_thousands($num);
+    // if ($num >= 1000000) {
+    //     return convert_millions(floor($num / 1000000)) . " MILLION " . convert_thousands($num % 1000000);
+    // } else {
+    //     return convert_thousands($num);
+    // }
 }
 
 function convert_billions($num)
 {
-    if ($num >= 1000000000) {
-        return (convert_billions(floor($num / 1000000000)) . " Billion " . convert_millions($num % 1000000000));
-    } else {
-        return convert_millions($num);
-    }
+    return $num >= 1000000000 ? (convert_billions(floor($num / 1000000000)) . " Billion " . convert_millions($num % 1000000000)) : convert_millions($num);
+    // if ($num >= 1000000000) {
+    //     return (convert_billions(floor($num / 1000000000)) . " Billion " . convert_millions($num % 1000000000));
+    // } else {
+    //     return convert_millions($num);
+    // }
 }
 
 function convert_num_with_decimal($num)
