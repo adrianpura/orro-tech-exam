@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Number to Word - JS</title>
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <style>
+      /* Chrome, Safari, Edge, Opera */
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      /* Firefox */
+      input[type="number"] {
+        -moz-appearance: textfield;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="py-3 mb-4 border-bottom">
+      <div class="container d-flex flex-wrap justify-content-center">
+        <a
+          href="/"
+          class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none"
+        >
+          <svg class="bi me-2" width="40" height="32">
+            <use xlink:href="#bootstrap"></use>
+          </svg>
+          <span class="fs-4">Number to Words</span>
+        </a>
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0" role="search"></form>
+      </div>
+    </header>
+    <div class="container">
+      <div class="row">
+        <div class="col"></div>
+        <div class="col-6">
+          <form>
+            <div class="form-group">
+              <label for="numberInput">Please input number:</label>
+              <input type="number" class="form-control" id="num-to-convert" />
+              <span id="words-result">Result</span>
+            </div>
+          </form>
+        </div>
+        <div class="col"></div>
+      </div>
+    </div>
+    <script src="num-to-words-oop.js"></script>
+  </body>
+</html>

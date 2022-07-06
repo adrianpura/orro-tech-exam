@@ -45,11 +45,11 @@ function convert_num_with_decimal(num) {
     }
 }
 
-console.log(convert_num_with_decimal('123.45'))
-console.log(convert_num_with_decimal('100.05'))
-console.log(convert_num_with_decimal('100001.01'))
-console.log(convert_num_with_decimal('1789501.25'))
-console.log(convert_num_with_decimal('789481.00'))
-console.log(convert_num_with_decimal('2156175.50'))
-console.log(convert_num_with_decimal('1111111.11'))
-console.log(convert_num_with_decimal('10002005.77'))
+// console.log(convert_num_with_decimal('123.45'))
+// console.log(convert_num_with_decimal('100.05'))
+// console.log(convert_num_with_decimal('100001.01'))
+// console.log(convert_num_with_decimal('1789501.25'))
+// console.log(convert_num_with_decimal('789481.00'))
+// console.log(convert_num_with_decimal('2156175.50'))
+// console.log(convert_num_with_decimal('1111111.11'))
+// console.log(convert_num_with_decimal('10002005.77'))

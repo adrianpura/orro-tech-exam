@@ -1,5 +1,6 @@
 <?php
-
+// header('Access-Control-Allow-Origin: *');
+// header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
 class NumToWords
 {
     function __construct($num)
@@ -91,19 +92,25 @@ $ones = ['ZERO', 'ONE', 'TWO', 'THREE', 'FOUR', 'FIVE', 'SIX', 'SEVEN', 'EIGHT',
 $teens = ['TEN', 'ELEVEN', 'TWELVE', 'THIRTEEN', 'FOURTEEN', 'FIFTEEN', 'SIXTEEN', 'SEVENTEEN', 'EIGHTEEN', 'NINETEEN'];
 $tens = ['', '', 'TWENTY', 'THIRTY', 'FORTY', 'FIFTY', 'SIXTY', 'SEVENTY', 'EIGHTY', 'NINETY'];
 
-$num1 = new NumToWords('123.45', $ones, $teens, $tens);
-var_dump($num1->convert_num_with_decimal());
-$num2 = new NumToWords('100.05', $ones, $teens, $tens);
-var_dump($num2->convert_num_with_decimal());
-$num3 = new NumToWords('100001.01', $ones, $teens, $tens);
-var_dump($num3->convert_num_with_decimal());
-$num4 = new NumToWords('1789501.25', $ones, $teens, $tens);
-var_dump($num4->convert_num_with_decimal());
-$num5 = new NumToWords('789481.00', $ones, $teens, $tens);
-var_dump($num5->convert_num_with_decimal());
-$num6 = new NumToWords('2156175.50', $ones, $teens, $tens);
-var_dump($num6->convert_num_with_decimal());
-$num7 = new NumToWords('1111111.11', $ones, $teens, $tens);
-var_dump($num7->convert_num_with_decimal());
-$num8 = new NumToWords('10002005.77', $ones, $teens, $tens);
-var_dump($num8->convert_num_with_decimal());
+$numInput =  isset($_REQUEST["q"]) ? $_REQUEST["q"] : '';
+if ($numInput != '') {
+    $num1 = new NumToWords($numInput, $ones, $teens, $tens);
+    echo $num1->convert_num_with_decimal();
+}
+
+// $num1 = new NumToWords('123.45', $ones, $teens, $tens);
+// var_dump($num1->convert_num_with_decimal());
+// $num2 = new NumToWords('100.05', $ones, $teens, $tens);
+// var_dump($num2->convert_num_with_decimal());
+// $num3 = new NumToWords('100001.01', $ones, $teens, $tens);
+// var_dump($num3->convert_num_with_decimal());
+// $num4 = new NumToWords('1789501.25', $ones, $teens, $tens);
+// var_dump($num4->convert_num_with_decimal());
+// $num5 = new NumToWords('789481.00', $ones, $teens, $tens);
+// var_dump($num5->convert_num_with_decimal());
+// $num6 = new NumToWords('2156175.50', $ones, $teens, $tens);
+// var_dump($num6->convert_num_with_decimal());
+// $num7 = new NumToWords('1111111.11', $ones, $teens, $tens);
+// var_dump($num7->convert_num_with_decimal());
+// $num8 = new NumToWords('10002005.77', $ones, $teens, $tens);
+// var_dump($num8->convert_num_with_decimal());

@@ -38,7 +38,7 @@ class NumToWords {
             let decimal = this.convert_billions(nums[1].replace(/^0+/, ''))
             return nums[1] === '00' ? billions + ' DOLLARS ' : billions + ' DOLLARS AND ' + decimal + ' CENTS'
         } else {
-            return billions
+            return billions + ' DOLLARS '
         }
     }
 
@@ -48,19 +48,29 @@ const ones = ['ZERO', 'ONE', 'TWO', 'THREE', 'FOUR', 'FIVE', 'SIX', 'SEVEN', 'EI
 const teens = ['TEN', 'ELEVEN', 'TWELVE', 'THIRTEEN', 'FOURTEEN', 'FIFTEEN', 'SIXTEEN', 'SEVENTEEN', 'EIGHTEEN', 'NINETEEN'];
 const tens = ['', '', 'TWENTY', 'THIRTY', 'FORTY', 'FIFTY', 'SIXTY', 'SEVENTY', 'EIGHTY', 'NINETY'];
 
-const num1 = new NumToWords('123.45', ones, teens, tens)
-console.log(num1.convert_num_with_decimal())
-const num2 = new NumToWords('100.05', ones, teens, tens)
-console.log(num2.convert_num_with_decimal())
-const num3 = new NumToWords('100001.01', ones, teens, tens)
-console.log(num3.convert_num_with_decimal())
-const num4 = new NumToWords('1789501.25', ones, teens, tens)
-console.log(num4.convert_num_with_decimal())
-const num5 = new NumToWords('789481.00', ones, teens, tens)
-console.log(num5.convert_num_with_decimal())
-const num6 = new NumToWords('2156175.50', ones, teens, tens)
-console.log(num6.convert_num_with_decimal())
-const num7 = new NumToWords('1111111.11', ones, teens, tens)
-console.log(num7.convert_num_with_decimal())
-const num8 = new NumToWords('10002005.77', ones, teens, tens)
-console.log(num8.convert_num_with_decimal())
+
+const numberInputEl = document.querySelector('#num-to-convert')
+const wordResultEl = document.querySelector('#words-result')
+
+numberInputEl.addEventListener('input', (e) => {
+    const numInput = new NumToWords(e.target.value, ones, teens, tens)
+    e.target.value === "" ? wordResultEl.textContent = 'Result' : wordResultEl.textContent = numInput.convert_num_with_decimal()
+})
+
+
+// const num1 = new NumToWords('123.45', ones, teens, tens)
+// console.log(num1.convert_num_with_decimal())
+// const num2 = new NumToWords('100.05', ones, teens, tens)
+// console.log(num2.convert_num_with_decimal())
+// const num3 = new NumToWords('100001.01', ones, teens, tens)
+// console.log(num3.convert_num_with_decimal())
+// const num4 = new NumToWords('1789501.25', ones, teens, tens)
+// console.log(num4.convert_num_with_decimal())
+// const num5 = new NumToWords('789481.00', ones, teens, tens)
+// console.log(num5.convert_num_with_decimal())
+// const num6 = new NumToWords('2156175.50', ones, teens, tens)
+// console.log(num6.convert_num_with_decimal())
+// const num7 = new NumToWords('1111111.11', ones, teens, tens)
+// console.log(num7.convert_num_with_decimal())
+// const num8 = new NumToWords('10002005.77', ones, teens, tens)
+// console.log(num8.convert_num_with_decimal())
