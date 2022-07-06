@@ -45,9 +45,6 @@
 </head>
 
 <body>
-    <?php
-    include('num-to-words-oop.php');
-    ?>
     <header class="py-3 mb-4 border-bottom">
         <div class="container d-flex flex-wrap justify-content-center">
             <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
