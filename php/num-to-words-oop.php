@@ -76,7 +76,7 @@ class NumToWords
         $nums = explode('.', (string)$this->num);
         $billions = $this->convert_billions($nums[0]);
         if (count($nums) == 2) {
-            if ($nums[1] === "00") {
+            if ($nums[1] === "00" or $nums[1] === "0") {
                 return $billions . ' DOLLARS';
             } else {
                 $decimal = $this->convert_billions(ltrim($nums[1], "0"));
